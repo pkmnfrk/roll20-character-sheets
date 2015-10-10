@@ -244,11 +244,12 @@
             <select name="attr_which_stat">
                 <option value="@{strmod}">Strength</option>
                 <option value="@{dexmod}">Dexterity</option>
+				<option value="@{conmod}">Constitution</option>
                 <option value="@{intmod}">Intelligence</option>
                 <option value="@{wismod}">Wisdom</option>
                 <option value="@{chamod}">Charisma</option>
             </select>
-            <button type="roll" name="roll_defy_danger" value="&{template:default} {{name= Stay Frosty}} {{Result=[[2d6+@{which_stat}]]}}"></button><br>
+            <button type="roll" name="roll_defy_danger" value="&{template:default} {{name= Defy Danger}} {{Result=[[2d6+@{which_stat}]]}}"></button><br>
 	</div>
 	<div class="sheet-header">
 		<div class="sheet-section-name">Moves</div>
@@ -262,6 +263,7 @@
 			<select name="attr_which_stat" class="sheet-hide">
                 <option value="@{strmod}">Strength</option>
                 <option value="@{dexmod}">Dexterity</option>
+				<option value="@{conmod}">Constitution</option>
                 <option value="@{intmod}">Intelligence</option>
                 <option value="@{wismod}">Wisdom</option>
                 <option value="@{chamod}">Charisma</option>
