@@ -194,7 +194,10 @@
 	</div>
 	<div class="sheet-section-bonds">
 		<fieldset class="repeating_bonds">
-			<textarea placeholder="Empty Bond" name="attr_bond"></textarea>
+			<input type="text" placeholder="Character Name" name="attr_bond_char"></input>
+            <textarea placeholder="List bonds/favors here, then count them and put the number below"></textarea>
+            <input type="number" name="attr_bond_val">
+            <button type="roll" name="roll_help_or_interfere" value="&{template:default} {{name= Aid/Interfere}} {{Bond With=@{bond_char}}} {{Result=[[2d6+@{bond_val}]]}}"></button>
 			<div class="sheet-clearfix"></div>
 		</fieldset>
 	</div>
@@ -228,13 +231,42 @@
 <div class="sheet-col-right">
 	<!-- ===== MOVES ===== -->
 	<div class="sheet-header">
+		<div class="sheet-section-name">Core Moves</div>
+	</div>
+	<div class="sheet-section-moves">
+        Hack and Slash<button type="roll" name="roll_hack_slash" value="&{template:default} {{name= Hack and Slash}} {{Result=[[2d6+@{strmod}]]}}"></button><br>
+        Volley<button type="roll" name="roll_volley" value="&{template:default} {{name= Volley}} {{Result=[[2d6+@{dexmod}]]}}"></button><br>
+        Defend<button type="roll" name="roll_defend" value="&{template:default} {{name= Defend}} {{Result=[[2d6+@{conmod}]]}}"></button><br>
+        Discern Realities<button type="roll" name="roll_discern_realities" value="&{template:default} {{name= Discern Realities}} {{Result=[[2d6+@{wismod}]]}}"></button><br>
+        Spout Lore<button type="roll" name="roll_spout_lore" value="&{template:default} {{name= Spout Lore}} {{Result=[[2d6+@{intmod}]]}}"></button><br>
+		Parley<button type="roll" name="roll_parley" value="&{template:default} {{name= Parley}} {{Result=[[2d6+@{chamod}]]}}"></button><br>
+        Defy Danger
+            <select name="attr_which_stat">
+                <option value="@{strmod}">Strength</option>
+                <option value="@{dexmod}">Dexterity</option>
+                <option value="@{intmod}">Intelligence</option>
+                <option value="@{wismod}">Wisdom</option>
+                <option value="@{chamod}">Charisma</option>
+            </select>
+            <button type="roll" name="roll_defy_danger" value="&{template:default} {{name= Stay Frosty}} {{Result=[[2d6+@{which_stat}]]}}"></button><br>
+	</div>
+	<div class="sheet-header">
 		<div class="sheet-section-name">Moves</div>
 	</div>
 	<div class="sheet-section-moves">
 		<fieldset class="repeating_moves">
 			<input type="text" name="attr_movename" placeholder="Move Name">
+			<textarea name="attr_movebody" placeholder="Move Description"></textarea>
+			<span>Roll?</span>
 			<input type="checkbox" class="sheet-toggle" title="show/hide" name="attr_move-show" value="1" />
-			<textarea name="attr_movebody" class="sheet-hide" placeholder="Move Description"></textarea>
+			<select name="attr_which_stat" class="sheet-hide">
+                <option value="@{strmod}">Strength</option>
+                <option value="@{dexmod}">Dexterity</option>
+                <option value="@{intmod}">Intelligence</option>
+                <option value="@{wismod}">Wisdom</option>
+                <option value="@{chamod}">Charisma</option>
+            </select>
+            <button class="sheet-hide" type="roll" name="roll_cust_move" value="&{template:default} {{name=@{movename}}} {{Description=@{movebody}}} {{Result=[[2d6+@{which_stat}]]}}"></button>
 		</fieldset>
 	</div>
 </div>
